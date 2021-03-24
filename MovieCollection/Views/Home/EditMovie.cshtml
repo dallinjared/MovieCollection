@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add Movie";
+}
+
+@model MovieCollection.Models.Movies
+
+<div class="text-center">
+    <h1 class="display-4">Edit Movie</h1>
+    <form asp-action="EditMovie" method="post">
+
+        <div>
+            <label asp-for="Category">Category:</label>
+            <select asp-for="Category" value="@Model.Category">
+                <option value="">Select One</option>
+                <option value="Action/Adventure">Action/Adventure</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Family">Family</option>
+                <option value="Horror/Suspense">Horror/Suspense</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Television">Television</option>
+                <option value="VHS">VHS</option>
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" value="@Model.Title"/>
+        </div>
+
+        <div>
+            <label asp-for="Year">Year:</label>
+            <input asp-for="Year" value="@Model.Year"/>
+        </div>
+
+        <div>
+            <label asp-for="Director">Director:</label>
+            <input asp-for="Director" value="@Model.Director"/>
+        </div>
+
+        <div>
+            <label asp-for="Rating">Rating:</label>
+            <select asp-for="Rating" value="@Model.Rating">
+                <option value="">Select One</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="Edited">Edited:</label>
+            <input asp-for="Edited" type="checkbox" name="Edited" placeholder="@Model.Edited"/>
+        </div>
+
+        <div>
+            <label asp-for="LentTo">Lent To:</label>
+            <input asp-for="LentTo" value="@Model.LentTo"/>
+        </div>
+
+        <div>
+            <label asp-for="Notes">Notes:</label>
+            <input asp-for="Notes" value="@Model.Notes"/>
+        </div>
+        <input type="hidden" name="MovieID" value="@Model.MovieID" />
+        <button type="submit" class="btn btn-dark">Edit Movie</button>
+    </form>
+</div>
